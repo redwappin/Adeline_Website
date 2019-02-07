@@ -7,6 +7,8 @@ import * as Rellax from 'rellax';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  name="Adeline Delbecq";
+  description="Développeuse";
   zoom: number = 14;
   lat: number = 44.445248;
   lng: number = 26.099672;

@@ -6,17 +6,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent {
     model = {
         left: true,
         middle: false,
         right: false
     };
-
-    focus;
     focus1;
-    title="Adeline Delbecq";
-    constructor() { }
 
-    ngOnInit() {}
 }
