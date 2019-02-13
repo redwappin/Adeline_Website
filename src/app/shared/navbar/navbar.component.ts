@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AuthService } from 'app/core/auth.service';
 
 @Component({
     selector: 'app-navbar',
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     title="Adeline Delbecq";
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(public location: Location, private element: ElementRef, public authService: AuthService) {
         this.sidebarVisible = false;
     }
 
@@ -48,23 +49,5 @@ export class NavbarComponent implements OnInit {
             this.sidebarClose();
         }
     };
-    isHome() {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
 
-        if( titlee === '/home' ) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    isDocumentation() {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        if( titlee === '/documentation' ) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 }
