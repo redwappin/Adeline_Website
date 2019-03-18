@@ -1,29 +1,50 @@
-<div class="blog-5">
-  <div class="container">
-    <h2 class="title text-center">Mon portfolio</h2>
-    <div class="row">
-      <div class="col-md-7">
-        <div class="card" data-background="image" style="background-image: url('./assets/img/sections/uriel-soberanes.jpg')">
-          <div class="card-body">
-            <h6 class="card-category">
-              <i class="fa fa-newspaper-o"></i> Lifestyle</h6>
-            <a href="#pablo">
-              <h3 class="card-title">Twenty-Something Travel - Virtual Wayfarer</h3>
-            </a>
-            <p class="card-description">
-              As happens in most of these hearings so far, that argument led to a back-and-forth between Uber and Waymo’s lawyers over the pre-trial discovery...
-            </p>
-            <div class="card-footer">
-              <div class="author">
-                <a href="#pablo">
-                  <img src="./assets/img/faces/Adeline.jpg" alt="..." class="avatar img-raised">
-                  <span>Lynne Barrett</span>
-                </a>
-              </div>
-            </div>
+<div class="page-header section-dark" style="background-image: url('assets/img/writing_machine.jpg')">
+  <div class="filter"></div>
+  <div class="content-center">
+      <div class="container">
+          <div class="title-brand">
+              <h1 class="presentation-title">Mon portfolio</h1>
           </div>
-        </div>
       </div>
+  </div>
+</div>
+<div class="section">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-10 ml-auto mr-auto">
+            <div *ngFor="let post of posts" class="card">
+                <div class="row">
+                  <div class="image">
+                        <img class="img-responsive" src="{{post.image}}" alt="{{post.title}}"/>  
+                  </div>
+                  <div class="subject">
+                    <div class="card-header">
+                      <a class="date">{{post.published.toDate() | date: 'longDate'}}</a>
+                      <div *ngIf="authService.afAuth.authState | async as user;">
+                        <button class class="edit">
+                          <i class="far fa-edit"></i>
+                        </button>
+                        <button class="trash"  (click)="delete(post.id)">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>   
+                    </div> 
+                    <div class="card-body">
+                      <h6 class="card-category text-danger">Dev</h6>
+                      <h3 class="card-title">
+                        <a routerLink="['/blog', post.id]">{{post.title}}</a>
+                      </h3>
+                      <p class="card-description">
+                       {{post.description}}
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                        <a [routerLink]="['/blog', post.id ]" class="btn btn-danger btn-round"> Lire PLus</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
     </div>
   </div>
 </div>

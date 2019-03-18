@@ -7,10 +7,10 @@ import { PostsModule } from '../posts/posts.module';
 
 import { HomeComponent } from './home.component';
 
-import { ComponentsModule } from '../components/components.module';
 import { ProfileComponent } from '../profile/profile.component';
 import { ContactComponent } from '../contact/contact.component';
 import { TimelineComponent } from '../timeline/timeline.component';
+import { SkillsComponent } from '../skills/skills.component';
 
 
 @NgModule({
@@ -19,10 +19,9 @@ import { TimelineComponent } from '../timeline/timeline.component';
         BrowserModule,
         FormsModule,
         RouterModule,
-        ComponentsModule,
         PostsModule,
     ],
-    declarations: [ HomeComponent, ProfileComponent, ContactComponent, TimelineComponent],
+    declarations: [ HomeComponent, ProfileComponent, ContactComponent, TimelineComponent, SkillsComponent],
     exports:[ HomeComponent ],
     providers: []
 })

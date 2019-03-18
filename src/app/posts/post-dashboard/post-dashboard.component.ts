@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostModel } from 'app/Models/postModel';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-post-dashboard',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostDashboardComponent implements OnInit {
 
-  constructor() { }
+  posts: PostModel[];
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.posts = this.postService.getPosts()
   }
 
 }
