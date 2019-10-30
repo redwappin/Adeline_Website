@@ -7,11 +7,4 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent {
-    model = {
-        left: true,
-        middle: false,
-        right: false
-    };
-    focus1;
-
 }

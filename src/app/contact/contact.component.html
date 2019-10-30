@@ -35,33 +35,33 @@
                   </div>
                 </div>
                 <div class="col-md-5 mr-auto">
-                  <form role="form" id="contact-form" method="post">
+                  <form  [formGroup]="fb" (ngSubmit)="sendEmail()" id="contact-form">
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group label-floating">
                             <label class="control-label">Prénom</label>
-                            <input type="text" name="name" class="form-control" placeholder="Prénom">
+                            <input type="text" name="surname" class="form-control" formControlName="surname" placeholder="Prénom">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group label-floating">
                             <label class="control-label">Nom</label>
-                            <input type="text" name="name" class="form-control" placeholder="Nom">
+                            <input type="text" name="name" class="form-control" formControlName="name" placeholder="Nom">
                           </div>
                         </div>
                       </div>
                       <div class="form-group label-floating">
                         <label class="control-label">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email" />
+                        <input type="email" name="email" formControlName="email" class="form-control" placeholder="Email" />
                       </div>
                       <div class="form-group label-floating">
                         <label class="control-label">Votre message</label>
-                        <textarea name="message" class="form-control" id="message" rows="6" placeholder="Message"></textarea>
+                        <textarea name="message" class="form-control" id="message" rows="6" placeholder="Message" formControlName="message"></textarea>
                       </div>
                       <div class="row">
                         <div class="col">
-                          <button type="submit" class="btn btn-primary pull-right">Envoyer</button>
+                          <button class="btn btn-primary pull-right">Envoyer</button>
                         </div>
                       </div>
                     </div>

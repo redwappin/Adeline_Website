@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div *ngIf="postSelected">
+      <div class="container">
+          <div class="row">
+              <div class="roundedImage">
+                  <img src="./assets/img/faces/Adeline.jpg" alt="Adeline Delbecq">
+              </div>
+              <span><strong>{{postSelected.author}} .  </strong>{{postSelected.published.toDate() | date: 'longDate'}}</span>
+          </div>                 
+          <h1>{{postSelected.title}}</h1>
+          <strong>{{postSelected.description}}</strong>
+          <div class="image">
+              <img class="img-responsive" src="{{postSelected.image}}" alt="{{postSelected.title}}"/>
+          </div>
+          <div class="section">
+                  <div [innerHTML]="postSelected.content | sanitizeHtml"></div>                
+          </div>
+      </div>
+      <!-- <div class="posts">
+          <h3>Articles récents</h3>
+          <div class ="post-group">
+              <div class="postContainer" *ngFor="let post of otherposts">
+                  <div class="img-post">
+                      <img src="{{post.image}}" alt="{{post.title}}">
+                  </div>
+                  <div class="text-post">
+                      <a [routerLink]="['/blog', post.id]">
+                          <h4 class="card-title">{{post.title}}</h4>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div> -->
+  </div>
+</div>
+

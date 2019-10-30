@@ -1,0 +1,20 @@
+.sidebar[data-active-color="info"] .nav li.active > a,
+.off-canvas-sidebar[data-active-color="info"] .nav li.active > a {
+  color: #68B3C8;
+  opacity: 1;
+}
+.sidebar[data-active-color="success"] .nav li.active > a,
+.off-canvas-sidebar[data-active-color="success"] .nav li.active > a {
+  color: #7AC29A;
+  opacity: 1;
+}
+.sidebar[data-active-color="warning"] .nav li.active > a,
+.off-canvas-sidebar[data-active-color="warning"] .nav li.active > a {
+  color: #F3BB45;
+  opacity: 1;
+}
+.sidebar[data-active-color="danger"] .nav li.active > a,
+.off-canvas-sidebar[data-active-color="danger"] .nav li.active > a {
+  color: #DD0330;
+  opacity: 1;
+}

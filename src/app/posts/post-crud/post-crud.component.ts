@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'app/core/auth.service';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { AuthService } from 'app/core/services/auth.service';
 import { PostService } from '../post.service';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage, AngularFireStorageReference } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
+import {Router} from "@angular/router";
+import { UploadService } from 'app/core/services/upload.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-post-crud',
@@ -11,57 +14,78 @@ import { Observable } from 'rxjs';
 })
 export class PostCrudComponent implements OnInit {
   title: string;
-  image: string = null;
+  selectedFiles: FileList;
+ 
   content: string;
   description: string;
+  tinymceInit: any;
+  tinymce: any;
 
-  downloadUrl: Observable<string>;
-  uploadpercent: Observable<number>;
+  
+  constructor(private authService: AuthService, private postService: PostService, private uploadService : UploadService, private route: Router, public fb: FormGroup) { 
 
-  constructor(private authService: AuthService, private postService: PostService, private storage: AngularFireStorage) { }
-
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.initTinymce();
+
+    this.fb=new FormGroup({})
+    
+  }
+
+  initTinymce(){
+    this.tinymceInit = {
+      plugins: 'image code link lists codesample fullscreens ',
+      toolbar: 'undo redo | link image | code | numlist bullist | codesample ',
+      height: 320,
+      image_title: true,
+      automatic_uploads: true,
+      file_picker_types: 'image',
+      file_picker_callback: function (cb, value, meta) {
+      var input = document.createElement('input');
+      input.setAttribute('type', 'file');
+      input.setAttribute('accept', 'image/*');
+      input.onchange = function () {
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.onload = function () {
+          // var id = 'blobid' + (new Date()).getTime();
+          // var blobCache =  this.tinymce.activeEditor.editorUpload.blobCache;
+          // var base64 =  (reader.result as string).split(',')[1];
+          // var blobInfo = blobCache.create(id, file, base64);
+          // blobCache.add(blobInfo);
+          // cb(blobInfo.blobUri(), { title: file.name });
+        };
+        reader.readAsDataURL(file);
+      };
+
+      input.click();
+    }
+    }
+  }
+  onSubmitPost(){}
+
+  
   createPost(){
     const data = {
       author: this.authService.authState.displayName,
       description: this.description,
       content: this.content,
-      image: this.image,
+      image: this.uploadService.image,
       published: new Date(),
       title: this.title
     };
-    console.log(data);
     this.postService.createPost(data);
     this.title="";
     this.description="";
     this.content="";
   }
-
-  uploadImage(event){
-    // const file = event.target.files[0];
-    // const path = `posts/${file.name}`;
-    // if (file.type.split('/')[0] !== 'image'){
-    //   return alert('Juste des fichiers image')
-    // }
-    // else{
-    //   const ref = this.storage.ref(path);
-    //   const task = this.storage.upload(path, file);
-      
-    //   ref.put(file).then(
-    //     test=> { console.log(ref.getDownloadURL()
-    //    )}
-    //   );
-
-    //   console.log('Image chargée avec succès');
-      
-      // const ref = this.storage.ref(path);
-
-      // this.downloadUrl = ref.getDownloadURL();
-      // console.log()
-      // this.downloadUrl.subscribe( url => this.image = url);
-    }
-  }
   
+   chooseFiles(event) {
+    this.selectedFiles = event.target.files;
+    if (this.selectedFiles.item(0))
+      this.uploadService.uploadImage( this.selectedFiles);  
+  }
+ 
 
+}

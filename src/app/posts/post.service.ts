@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { PostModel } from 'app/Models/postModel';
+import { PostModel } from 'app/models/postModel';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +9,16 @@ export class PostService {
 
 postCollection: AngularFirestoreCollection<PostModel>;
 postSelected: AngularFirestoreDocument<PostModel>;
+mode:String;
 
   constructor( private afst:  AngularFirestore) {
     this.postCollection = this.afst.collection('posts', post => post.orderBy('published', 'desc'));
+    this.mode="add";
   }
 
 
   getPosts(): PostModel[] {
-    var posts= new Array<PostModel>();
+    var posts = new Array<PostModel>();
     this.postCollection.snapshotChanges().forEach(element => {
       element.map( a => {
         const data = a.payload.doc.data() as PostModel;
@@ -45,5 +47,6 @@ postSelected: AngularFirestoreDocument<PostModel>;
   updatePost(id: string , post: PostModel){
     this.afst.doc<PostModel>(`posts/${id}`).update(post);
   }
+
 
 }

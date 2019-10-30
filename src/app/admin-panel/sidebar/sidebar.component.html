@@ -1,0 +1,19 @@
+
+<div class="sidebar-wrapper">
+  <div class="logo">
+      <a [routerLink]="['home']" class="simple-text">
+          <div class="logo-img">
+              <img src="../../../assets/img/Logos/logo-aigle-bordeaux-1.png" alt="">
+          </div>
+          Panneau admin
+      </a>
+  </div>
+  <ul class="side-nav">
+      <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+          <a [routerLink]="[menuItem.path]">
+              <i class="{{menuItem.icon}}"></i>
+              <p>{{menuItem.title}}</p>
+          </a>
+      </li>
+  </ul>
+</div>

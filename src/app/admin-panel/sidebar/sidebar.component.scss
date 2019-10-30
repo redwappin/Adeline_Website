@@ -1,0 +1,31 @@
+.side-nav{
+    margin-top: 20px;
+
+    li{
+        list-style: none;
+        > a{
+            margin: 10px 0px;
+            padding-left: 25px;
+            padding-right: 25px;
+            opacity: .7;
+        }
+    }
+
+    p{
+        margin: 0;
+        line-height: 30px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color:white;
+    }
+
+    i{
+        font-size: 24px;
+        float: left;
+        margin-right: 15px;
+        line-height: 30px;
+        width: 30px;
+        text-align: center;
+    }
+}

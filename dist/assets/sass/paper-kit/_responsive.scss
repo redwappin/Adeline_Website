@@ -161,10 +161,6 @@
     .bootstrap-datetimepicker-widget{
         visibility: visible;
     }
-
-    .dropdown-menu {
-        display: none;
-    }
     .navbar-fixed-top {
         -webkit-backface-visibility: hidden;
     }
@@ -473,16 +469,6 @@
         }
     }
 
-    .dropdown{
-        .dropdown-menu{
-           display: none;
-       }
-
-       &.show .dropdown-menu{
-           display: block;
-       }
-    }
-
     .navbar-translate{
         justify-content: space-between;
         display: flex;
@@ -672,15 +658,6 @@
             }
         }
 
-        .dropdown{
-            .dropdown-menu{
-               display: none;
-           }
-
-           &.show .dropdown-menu{
-               display: block;
-           }
-        }
     }
 }
 @media screen and (max-width: 1025px){

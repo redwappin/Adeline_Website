@@ -1,3 +1,4 @@
+
 <div class="page-header section-dark" style="background-image: url('assets/img/writing_machine.jpg')">
   <div class="filter"></div>
   <div class="content-center">
@@ -10,41 +11,26 @@
 </div>
 <div class="section">
   <div class="container">
-    <div class="row">
-        <div class="col-md-10 ml-auto mr-auto">
-            <div *ngFor="let post of posts" class="card">
-                <div class="row">
-                  <div class="image">
-                        <img class="img-responsive" src="{{post.image}}" alt="{{post.title}}"/>  
-                  </div>
-                  <div class="subject">
-                    <div class="card-header">
-                      <a class="date">{{post.published.toDate() | date: 'longDate'}}</a>
-                      <div *ngIf="authService.afAuth.authState | async as user;">
-                        <button class class="edit">
-                          <i class="far fa-edit"></i>
-                        </button>
-                        <button class="trash"  (click)="delete(post.id)">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>   
-                    </div> 
-                    <div class="card-body">
-                      <h6 class="card-category text-danger">Dev</h6>
-                      <h3 class="card-title">
-                        <a routerLink="['/blog', post.id]">{{post.title}}</a>
-                      </h3>
-                      <p class="card-description">
-                       {{post.description}}
-                      </p>
-                    </div>
-                    <div class="card-footer">
-                        <a [routerLink]="['/blog', post.id ]" class="btn btn-danger btn-round"> Lire PLus</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+     <div *ngFor="let post of posts" class="post-card">
+        <div class="image">
+          <img class="img-responsive" src="{{post.image}}" alt="{{post.title}}"/>  
         </div>
+        <div class="subject">
+          <div class="post-card-header">
+              <a class="date"><strong>  {{post.published.toDate() | date: 'longDate'}}</strong></a>
+          </div> 
+          <div class="post-card-body">
+              <h6 class="card-category text-danger">Dev</h6>
+              <h3 class="card-title">
+                  <a routerLink="['/blog', post.id]">{{post.title}}</a>
+              </h3>
+              <p class="post-card-description">
+                {{post.description}}
+              </p>
+           </div>
+            <div class="post-card-footer">
+                <a [routerLink]="['/blog', post.id ]" class="btn btn-danger btn-round"> Lire PLus</a>
+            </div>
+       </div>
     </div>
-  </div>
 </div>

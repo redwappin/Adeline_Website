@@ -1,27 +1,33 @@
+
 <div class="blog-5">
   <div class="container">
     <h2 class="title text-center">Mon portfolio</h2>
     <div class="row">
-      <div class="col-md-4" *ngFor="let post of posts">
-        <div class="card"data-background="image" [style.background]="'url('+post.image+')'">
-          <div class="card-body">
-            <h6 class="card-category">
-              <i class="fa fa-newspaper-o"></i> {{post.category}}</h6>
-            <a [routerLink]="['/blog', post.id]">
-              <h3 class="card-title">{{post.title}}</h3>
-            </a>
-            <p class="card-description">
-              {{post.description}}
-            </p>
-            <div class="card-footer">
-              <div class="author">
-                  <img src="./assets/img/faces/Adeline.jpg" alt="Adeline Delbecq" class="avatar img-raised">
-                  <span>{{post.author}}</span>
-              </div>
+        <div *ngFor="let post of posts ; let i=index" class="col-md-4" >
+            <div *ngIf="i<6" class="card"data-background="image" [style.background]="'url('+post.image+')'">
+              <div class="card-body">
+                <h6 class="card-category">
+                  <i class="fa fa-newspaper-o"></i> {{post.category}}
+                </h6>
+                <a [routerLink]="['/blog', post.id]">
+                  <h3 class="card-title">{{post.title}}</h3>
+                </a>
+                <p class="card-description">
+                  {{post.description}}
+                </p>
+                <div class="card-footer">
+                  <div class="author">
+                    <img src="./assets/img/faces/Adeline.jpg" alt="Adeline Delbecq" class="avatar img-raised">
+                    <span>{{post.author}}</span>
+                  </div>
+                </div>
+             </div>
             </div>
           </div>
-        </div>
-      </div>
+          <div class="blogButton">
+              <a [routerLink]="['/blog']" class="btn btn-danger btn-round">Voir plus</a>
+          </div>
+         
     </div>
   </div>
 </div>

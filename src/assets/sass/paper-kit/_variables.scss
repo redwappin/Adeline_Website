@@ -100,6 +100,8 @@ $padding-label-horizontal:     12px !default;
 $padding-dropdown-vertical:     10px !default;
 $padding-dropdown-horizontal:   15px !default;
 
+$padding-zero:                   0px !default;
+
 $margin-large-vertical:        30px !default;
 $margin-base-vertical:         15px !default;
 
@@ -317,3 +319,36 @@ $zindex-select-dropdown: 1060 !default; // must be higher than a modal backgroun
 
 //** Placeholder text color
 $input-color-placeholder: #999 !default;
+
+$sidebar-width:               calc(100% - 260px) !default;
+
+
+//variables used for sidebar
+$sidebar-background-dark-blue: #506367;
+
+$sidebar-background-blue:      #b8d8d8 !default;
+$sidebar-font-blue:            #506568 !default;
+$sidebar-subtitle-blue:        #7a9e9f !default;
+
+$sidebar-background-green:      #d5e5a3 !default;
+$sidebar-font-green:            #60773d !default;
+$sidebar-subtitle-green:        #92ac56 !default;
+
+$sidebar-background-yellow:      #ffe28c !default;
+$sidebar-font-yellow:            #b25825 !default;
+$sidebar-subtitle-yellow:        #d88715 !default;
+
+$sidebar-background-brown:      #d6c1ab !default;
+$sidebar-font-brown:            #75442e !default;
+$sidebar-subtitle-brown:        #a47e65 !default;
+
+$sidebar-background-purple:      #baa9ba !default;
+$sidebar-font-purple:            #3a283d !default;
+$sidebar-subtitle-purple:        #5a283d !default;
+
+$sidebar-background-orange:      #ff8f5e !default;
+$sidebar-font-orange:            #772510 !default;
+$sidebar-subtitle-orange:        #e95e37 !default;
+
+$white-background-color:        #FFFFFF !default;
+$black-background-color:        #212120 !default;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostModel } from 'app/Models/postModel';
+import { PostModel } from 'app/models/postModel';
 import { PostService } from '../post.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class PostDashboardComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit() {
-    this.posts = this.postService.getPosts()
+    this.posts = this.postService.getPosts();
   }
 
 }

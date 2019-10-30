@@ -1,7 +1,17 @@
+.post-card{
+    display: flex;
+    flex-direction: row;
+    height: 30vw;
+    background-color: white;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10%;
+}
 
 .date {
-    text-align: left;
-    flex:1;
+    text-align: right;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .trash{
@@ -13,24 +23,42 @@
     flex:0;
 }
 
-.card-header{
+.post-card-header{
     display: flex;
-    flex: 1;
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #bfbbb7;
+    background-color: #d6d1cc;
+    height: 8%;
 }
 
-.row{
+.post-card-body{
+    padding-left: 10%;
+    padding-right: 10%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80%;
 }
+
+.post-card-footer{
+    align-items: center;
+}
+
 
 .image{
-    flex: 1;
+    width: 50%;
+    object-fit: contain;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
 }
 .subject{
-    flex:1;
-}
-
-.image img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 50%;
 }
