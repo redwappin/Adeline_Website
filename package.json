@@ -27,7 +27,7 @@
     "core-js": "^2.5.4",
     "emailjs": "^2.2.0",
     "firebase": "^6.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "nativescript-email": "^1.5.4",
     "rellax": "^1.10.0",
     "rxjs": "~6.3.3",
